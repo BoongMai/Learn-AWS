@@ -46,9 +46,15 @@
 - Tạo 1 thằng user: và khi tạo nó phải được assigned zo 1 cái __group__ hoặc 1 cái __permissions__ hoặc attach nó zo 1 cái  policy có sẳn.
 - Case ở bài tập là tạo 1 cái group và add user vừa tạo vào
 - Tạo thành công account __admin__:
-    - Tài khoảng: admin/ mật khảu: 100820Za@
+    - Tài khoảng: admin/ mật khảu:ai cũng biết là gì.
     - Click detail thằng  user 'admin' vừa tạo và vào phần security credential thì nó sẽ có 1 cái __Console Link__
     - __Console Link__: dùng để đăng nhập zo cái AWS console dành cho cái acc đó __tất nhiên là không phải là console của root account__
     - Vì account admin được assign vào group admin cho nên nó tất cả các quyền. Nếu remove ra thì toang.
 
 ### IAM Roles là gì 
+- Thằng Role này bao gồm 2 phần chính là:
+    - Permission: cái này quyết định cái __Principle__ đó làm được gì khi mà nó được gắn cái role này
+    - Trust Policy: cái này sẽ quyết định là cái __quyền hạn "Principle"__ mà cái role này đảm nhận.
+- Role nó cũng giống như IAM users là nó sẽ cho phép người đăng nhập dược phép hoặc không dươc phép làm gì đó trong phiên đăng nhập đó.
+- Đưa vào cáo role có thể cung cấp cho 1 phiên hoặc đại diện cho thằng user nào đó được phép làm gì trong phiên làm việc
+    - chẳn hạn như được vào db, dược vào s3,...
