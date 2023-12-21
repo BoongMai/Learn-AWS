@@ -58,3 +58,22 @@
 - Role nó cũng giống như IAM users là nó sẽ cho phép người đăng nhập dược phép hoặc không dươc phép làm gì đó trong phiên đăng nhập đó.
 - Đưa vào cáo role có thể cung cấp cho 1 phiên hoặc đại diện cho thằng user nào đó được phép làm gì trong phiên làm việc
     - chẳn hạn như được vào db, dược vào s3,...
+
+## Day3 
+### Học lại về permission
+- Permisson sẽ được cấu thành từ các __policy__ và các __policy__ này thực chất là 1 JSON document
+### IAM Policies là gì ?
+- là 1 cái file JSON nhằm gắn vào 1 cái permission hoặc 1 account nào đó, khi đó account sẽ được cấp quyền tương ứng.
+- Mình có thể custom 1 cái policy cho bản thân !!
+## Ngày 3
+### MFA- Multi factor Authentication
+- thì cái này có 2 loại:
+    - Virtual MFA device: là 1 cái ứng dụng được cài đặt trên thiết bị
+    - Universal 2nd Factor Security Key 
+### AWS CLI - Comman line interface 
+- cái này giúp mình tương tác với service của aws thông qua comman line shell của mình.
+### AWS SDK - Software development kit
+- cái thằng này nó là 1 gói ngôn ngữ cụ rhe63, nếu muốn dùng thì nhúng nó zo cái app của mình. nó sẽ cho phép mình vào aws service và dev.
+### Cách dùng AWS CLI
+- Cài cái đã. Xogn thì m phải tạo 1 cái access key để được cấp quyền truy cập từ CLI-shell. Nhớ là cái key này tương tương với account nên không dược share.
+- Sau đó thì phải configure lại cái aws theo access key vừa tạo. and bumm m có thể làm bất cứ thứ gì miễn là trong permission của m thông qua CLI.
