@@ -77,3 +77,50 @@
 ### Cách dùng AWS CLI
 - Cài cái đã. Xogn thì m phải tạo 1 cái access key để được cấp quyền truy cập từ CLI-shell. Nhớ là cái key này tương tương với account nên không dược share.
 - Sau đó thì phải configure lại cái aws theo access key vừa tạo. and bumm m có thể làm bất cứ thứ gì miễn là trong permission của m thông qua CLI.
+- M có thể dùng Clound shell ở trên aws web lun, nhưng mà nó chỉ sup cho vài region thoai.
+## AWS - IAM Role for AWS service
+- thằng này giống như 1 phiên đăng nhập và có quyền sử dụng những gì mà nó đc cấp permission. Nhưng nó khác ở chổ đó là nó đc dùng cho các service của AWS. VD: tao có 1 cái EC2 instant và nó muốn dùng 1 service gì đó của aws. thì t phải có 1 cái role cho cái ec2 đó.
+
+### IAM Sercurity: 
+- chia ra làm 2 phần: 
+    - IAM Credentials thì cái này n1o sẽ cho phép mình quản lý cái list user đang có.(account)
+    - IAM advice access thì cái này nó giúp mình xem cái acc nào đó có những cái policy nào (user)
+IAM Guildlines $ Best Practices
+
+
+## Ngày 4
+### AWS - EC2
+- Thằng EC2 này hiện đang support tạo 3 hệ điều hành, Linux, Mac OS và Window.
+- EC2 - User Data:
+    - Tức là cái này nó sẽ chỉ khởi chạy 1 lần đoạn __script__  của User Data đó.
+- EC2 Instant type:
+    - cái này là mấy cái kiểu khi tạo 1 cái EC2:
+        - Genaral Perpose: cái này tốt cho web server và code dự án
+        - Compute Optimize: cái này tốt nếu m muốn 1 con máy xịn.
+        - Memory Optimize: cái này tốt cho lưu data.
+        - Storage Optimize: cái này tốt cho xử lý dữ liệu
+        - Trong này thì nó đặt tên theo kiểu như sau: 
+        - __m5.2xlarge__ trong đó __m__ là instant class, __5__ là generation và __2xlarge__ là size đi kèm với instant đó .
+- Securiry Group & Classic port for EC2
+    - mấy cái port cở bản phải biết:
+        - 22: SSH (Secure Shell) - log in to a linux instant
+        - 21: FTP (File Transfer Protocal) - upload file into a file share
+        - 22: SFTP (Secure File Tranfer Protocal) - upload file dùng SSH
+        - 80: HTTP - chấp thuận truy cập từ nguồn đăng nhập lạ
+        - 443: HTTPS - truy cập an toàn
+        - 3389: RDP (Remote desktop protocal) 
+## Ngày 5 Learn about SSH
+- Okei thì bây giờ muồn vào được cái máy ảo thì cần phải có 1 cái SSH (Đã được lưu từ trước.)
+- __cd__ zo cái thư mục lưu cái đấy để chạy lệnh run instant "ssh -i <tên ssh file> ec2-user@<public IP của instant đó>". Nhưng mà phải set cái file ssh này làm default bằng lệnh __chmod 0400 <tên SSH key>__
+### EC2 Instance Connect
+- Cũng là connect zo cái instance nhưng mà là trên AWS console.
+### EC2 Role
+- để mà cho phép cái instance dùng các service của AWS thì mình configure nhưng diểu đó không nên !!! (vấn đề bào mật !!!) => Vì thế mình dùng __Role__ 
+
+### EC2 purcharingh option
+
+## Ngày 6 - Learn About EBS (Elastic Block Store)
+- Là 1 cái ổ đĩa onl được tạo ở aws và có thể gắn zo cái instance của mình (cùng 1 AZ - Availability Zone.)
+- Khi mà tạo xong muốn copy nó để bảo lưu hoặc chép qua 1 cái AZ khác thì phải tạo Snapshot.
+    - Snapshot giúp mình sao lưu lại cái drive đó. và ở đây mình có thể tạo 1 cái recycle bin rule để tránh xóa phát mất luôn.
+    - Mình có thể copy cái snapshot này (túc là 1 cái drive có data trước đó) cho cái az khác hoặc clone nó.
