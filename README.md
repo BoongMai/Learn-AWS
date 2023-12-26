@@ -119,8 +119,15 @@ IAM Guildlines $ Best Practices
 
 ### EC2 purcharingh option
 
-## Ngày 6 - Learn About EBS (Elastic Block Store)
+## Ngày 6 
+
+### Learn About EBS (Elastic Block Store)
 - Là 1 cái ổ đĩa onl được tạo ở aws và có thể gắn zo cái instance của mình (cùng 1 AZ - Availability Zone.)
 - Khi mà tạo xong muốn copy nó để bảo lưu hoặc chép qua 1 cái AZ khác thì phải tạo Snapshot.
     - Snapshot giúp mình sao lưu lại cái drive đó. và ở đây mình có thể tạo 1 cái recycle bin rule để tránh xóa phát mất luôn.
     - Mình có thể copy cái snapshot này (túc là 1 cái drive có data trước đó) cho cái az khác hoặc clone nó.
+### AMI - Amazon Machine Image
+- Cái này same như iamge của docker. mình có thể tạo 1 cái instance trước với cái bộ Image yêu thích. sau đó chọn create AMI. từ cái AMI này mình có thể clone ra 1 cái instace khác với cái image có sẳn mà không cần phải setup lại từ đầu.
+## Ngày 7.
+###  EBS - Elastic Block System và EFS Elastic File system:
+ - 2 cái này đều là dùng để lưu trữ nhưng 1 cái là lưu dạng block và chỉ 1 AZ cái còn lại là nó có thể scale theo data và nhiều AZ cùng lúc dc lun
