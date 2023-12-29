@@ -129,5 +129,7 @@ IAM Guildlines $ Best Practices
 ### AMI - Amazon Machine Image
 - Cái này same như iamge của docker. mình có thể tạo 1 cái instance trước với cái bộ Image yêu thích. sau đó chọn create AMI. từ cái AMI này mình có thể clone ra 1 cái instace khác với cái image có sẳn mà không cần phải setup lại từ đầu.
 ## Ngày 7.
-###  EBS - Elastic Block System và EFS Elastic File system:
+###  EBS - Elastic Block Store và EFS Elastic File system:
  - 2 cái này đều là dùng để lưu trữ nhưng 1 cái là lưu dạng block và chỉ 1 AZ cái còn lại là nó có thể scale theo data và nhiều AZ cùng lúc dc lun
+ ## Ngày 8
+ ### So sánh EBS Elastic Block Store và EFS Elastic File System.
