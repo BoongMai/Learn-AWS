@@ -1,3 +1,12 @@
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello World from $(hostname -f)</h1›" > /var/www/html/index.html
+
 ## ---------------- NGÀY 1: Mục: 3.Vid-1 ----------------
 ### <font color="#007bff">1.IAM quản lý 3 phần chính gồm: Compute, Storage và DataBase.</font>
 #### 1.1: Compute bao gồm 6 phần:
@@ -133,3 +142,31 @@ IAM Guildlines $ Best Practices
  - 2 cái này đều là dùng để lưu trữ nhưng 1 cái là lưu dạng block và chỉ 1 AZ cái còn lại là nó có thể scale theo data và nhiều AZ cùng lúc dc lun
  ## Ngày 8
  ### So sánh EBS Elastic Block Store và EFS Elastic File System.
+ ### exp - chương EBS EFS:
+ - What is EBS Multi-Attach: Gán cùng 1 cái EBS volumn zo nhiều cái intance nhưng cùng 1 cái Availability Zone
+ - You are running a high-performance database that requires an IOPS of 310,000 for its underlying storage. What do you recommend?: Dùng EC2 Intance store 
+ __You can run a database on an EC2 instance that uses an Instance Store, but you'll have a problem that the data will be lost if the EC2 instance is stopped (it can be restarted without problems). One solution is that you can set up a replication mechanism on another EC2 instance with an Instance Store to have a standby copy. Another solution is to set up backup mechanisms for your data. It's all up to you how you want to set up your architecture to validate your requirements. In this use case, it's around IOPS, so we have to choose an EC2 Instance Store.__
+- Which of the following EBS volume types can be used as boot volumes when you create EC2 instances?:
+    - gp2, gp3, io1, io2 và and Magnetic (Standard). mới đc boot
+- nếu mà database thì cứ Intance store mà vã là lụm hết :>>
+## Ngày 9 
+### Scalability - cái này là nói về độ thích nghi của hệ thống hoặc ứng dụng.
+- Có 2 loại scalability: 
+    - Vertical: là tăng theo chiều dọc. tức là nó sẽ tăng về kích thước kiểu như đang size bé thì up lên size.
+    - Horizontal: là tăng chiều ngang. tức là nó sẽ tăng về số lượng. 1 người thì tăng9 lên 2 người.vv..
+### High Availability:
+-  Nó sẽ hoat4 động giống như 1 cái backup luôn chờ để được phục vụ. nhằm mục đích không bị gián đoạn khi sử dụng.
+### Load balancing là gì ???
+- là nó check cái intance xem có bị quá tải hay không. hoặc nó sẽ chia nhỏ người dùng ra để đều tải các intance
+- hiện tại thì có 4 loại:
+    - Classic Load Balancer - CLB
+    - Application Load Balance - ALB
+        - Thích ứng với: HTTP, HTTP, Web socket
+    - Network load balancer - MLB
+        - tương thích với: TCL, TLS, UDP
+    - Gateway Load balancer - GLB
+        - tương thích: 
+### Ngày 10 - Cụ thể về ALB
+- Application Load Balancer: 
+
+
