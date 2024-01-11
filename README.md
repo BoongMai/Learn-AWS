@@ -167,6 +167,20 @@ IAM Guildlines $ Best Practices
     - Gateway Load balancer - GLB
         - tương thích: 
 ### Ngày 10 - Cụ thể về ALB
-- Application Load Balancer: 
+- Application Load Balancer: Cái này muốn dùng thì đầu tiên phải trỏ nó zo 1 cái port mà mình muốn dùng:
+ http hoặc https > Tạo 1 cái load balance loại ALB sau đó trỏ vô cái > Listeners and rules (cái này quy định port để triển khai cái load nè) >  target group > trong cái target group này mình sẽ quy định đc intance nào sẽ đc dùng....
+ - Đặt biệt trong cái Listeners and rules nó sẽ có 1 cái để mình setup rule. Mình có thể tạo vô số cái rule cho nó > ví dụ t tạo 1 cái rule dùng path là __/error__ và khai báo điều kiện trong đó. Thì cái load balance nó sẽ check theo cái path và điều kiện redirect nếu m zo đúng cái part nó sẽ redirect m đi.
 
+### Ngày 11 - Sticky Session - Cross zone load balancing - SSL
+- Sticky Session : cái này thì kiểu như nó sẽ là 1 phiên hoạt động của người dùng khi vào bât1 cứ 1 cái laod balance nào. Nó sẽ có 1 cái cookie để lưu trữ lại cái phiên đó: VD tróng phiên cookie sẻ cầm data của user đó và quy định thời gian hết hạn để truy cập vào intance và sẽ switch sang intance khác.
+- Cookie Names:  Thì cái này có 2 loại đó là Application based cookies và Duration base-cookies (Tạo cái này ở target thì gọi là custom Cookie name)
+- Cross Zone Load Balancing: cái này thì mình custom cái tỉ lệ nó truy cập vào các intance: VD có 10 cái chia tỉ lệ 2 || 6 ở 2 AZ thì cái Cross zone này cho phép mình phân chia tỉ lệ sao cho hợp lý. ALB thì nó tự bật và mình có thể cuctom tắt ở  target group. NLB thì bật lên tính tiền ở mục attribute, tương tự cho Gateway Load Balancer
+- SSL/TLS: Cái này nó sẽ cho phé cho phép mình truy cập từ client vào cái load balance được mã hóa. SSL là Secure Socket Layer và TLS là Transport Layer Security -> Server Name Indication cái này nó sẽ phân định cho mình là cái SSL đó muốn zo cái target nào và chỉ đùng đc cho ALB & NLB, CloudFront
+- connection draining cái này giúp tạm ngưng request tới 1 cái intance khi nó ở trạng thái draining.
+- Auto Scaling Group (ASG):
+    - Tự thêm và xóa intance nếu chạm ngưỡng. kết hợp với ELB để dùng.
 
+### Ngày 12 Auto Scalling Group - Dynamic Scalling Pilice
+- Dể sài dể settup, tự động phát hiện CPU đang ở trạng thái > 70% ( add 2 units) và < 30% (remove đi 1 unit).
+
+### ngày 14
